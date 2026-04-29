@@ -1,0 +1,19 @@
+# Problem 1
+In this problem, I made a class called (Animal) with a method (speak()). Then I made a class (Dog) and changed the method to print "Woof".
+
+
+#Problem 2
+In this problem, I made a class called (Classroom). It has a list of students. I used (add_student()) to add names and (count_students()) to count them.
+
+
+# Problem 3
+In this problem, I made a class (Passenger) and a class (Flight). The flight has a list of passengers. I used (add_passenger()) to add passengers.
+
+
+# Problem 4
+In this problem, I made a class (Player) with name and score. Then I made a class (Team) with a list of members. I used (add_player()) to add players.
+
+
+# Problem 5
+In this problem, I made a class (Shape). Then I made (Circle) and (Square) with different area formulas. I used (print_area()) to print the area of any shape.
+
