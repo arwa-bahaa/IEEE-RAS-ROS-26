@@ -1,0 +1,17 @@
+Contest Feedback
+
+The contest was good and helpful for improving problem-solving skills.
+The questions were a bit difficult, and the time needed to be increased slightly.
+
+Pros:
+Good start of the contest
+Useful and interesting problems
+
+Cons:
+Some questions were hard
+Time was not enough
+
+Suggestions:
+Arrange problems in a smoother difficulty order
+Give partial hints for harder questions
+Allow a little more time for thinking and debugging
