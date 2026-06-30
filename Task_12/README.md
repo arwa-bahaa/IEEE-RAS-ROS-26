@@ -19,20 +19,28 @@ The system simulates real-time robotic interaction in a warehouse environment.
 - DANGER: Collision risk + higher priority robot nearby
 
 
-Yielding Logic
+Yielding Logic:
 The decision is based on the following rule:
 - Compute distance:
       distance = sqrt((x1 - x2)^2 + (y1 - y2)^2)
 
-- If:
-  - distance < safety_zone
-  - AND other_robot_priority > my_priority
+Safety Rule:
+A DANGER state is triggered when:
+Distance is less than 2.0 meters (Safety Zone)
+AND the other robot has higher priority than my robot
+Otherwise the state is CLEAR
 
   Then:
   - Output: DANGER
 
-- Else:
+  Else:
   - Output: CLEAR
+ System Output Examples:
+ CLEAR:
+ [CLEAR] robot2 | dist=3.45 | p=2
+
+ DANGER:
+ [DANGER] robot1 | dist=1.20 | p=5 > my_p=2 → YIELD
 
 
 The system handles two separate data streams:
