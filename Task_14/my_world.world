@@ -1,0 +1,299 @@
+?xml version="1.0"?>
+<sdf version="1.8">
+
+<world name="task14_world">
+
+  <!-- Sun -->
+  <light name="sun" type="directional">
+    <cast_shadows>true</cast_shadows>
+    <pose>0 0 10 0 0 0</pose>
+    <diffuse>1 1 1 1</diffuse>
+    <specular>0.2 0.2 0.2 1</specular>
+    <direction>-0.5 0.5 -1</direction>
+  </light>
+
+  <!-- Ground -->
+  <model name="ground">
+    <static>true</static>
+
+    <link name="link">
+
+      <collision name="collision">
+        <geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>20 20</size>
+          </plane>
+        </geometry>
+      </collision>
+      <visual name="visual">
+        <geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>20 20</size>
+          </plane>
+        </geometry>
+      </visual>
+
+    </link>
+
+  </model>
+
+  <!-- OUTER WALLS -->
+
+  <!-- Top -->
+  <model name="wall_top">
+    <static>true</static>
+    <pose>0 5 0.5 0 0 0</pose>
+
+    <link name="link">
+
+      <collision name="collision">
+        <geometry>
+          <box>
+            <size>10 0.2 1</size>
+          </box>
+        </geometry>
+      </collision>
+
+      <visual name="visual">
+        <geometry>
+          <box>
+            <size>10 0.2 1</size>
+          </box>
+        </geometry>
+      </visual>
+
+    </link>
+
+  </model>
+
+  <!-- Bottom -->
+  <model name="wall_bottom">
+    <static>true</static>
+    <pose>0 -5 0.5 0 0 0</pose>
+
+    <link name="link">
+      <collision name="collision">
+        <geometry>
+          <box>
+            <size>10 0.2 1</size>
+          </box>
+        </geometry>
+      </collision>
+
+      <visual name="visual">
+        <geometry>
+          <box>
+            <size>10 0.2 1</size>
+          </box>
+        </geometry>
+      </visual>
+
+    </link>
+
+  </model>
+
+  <!-- Left -->
+  <model name="wall_left">
+    <static>true</static>
+    <pose>-5 0 0.5 0 0 1.5708</pose>
+
+    <link name="link">
+
+      <collision name="collision">
+        <geometry>
+          <box>
+            <size>10 0.2 1</size>
+          </box>
+        </geometry>
+      </collision>
+
+      <visual name="visual">
+        <geometry>
+          <box>
+            <size>10 0.2 1</size>
+          </box>
+        </geometry>
+      </visual>
+
+    </link>
+
+  </model>
+
+  <!-- Right -->
+  <model name="wall_right">
+    <static>true</static>
+    <pose>5 0 0.5 0 0 1.5708</pose>
+
+    <link name="link">
+
+      <collision name="collision">
+        <geometry>
+          <box>
+            <size>10 0.2 1</size>
+          </box>
+        </geometry>
+      </collision>
+
+      <visual name="visual">
+        <geometry>
+          <box>
+            <size>10 0.2 1</size>
+          </box>
+        </geometry>
+      </visual>
+
+    </link>
+
+  </model>
+
+  <!--INNER WALLS -->
+
+  <!-- C Left -->
+  <model name="c_left">
+    <static>true</static>
+    <pose>-1.5 2 0.5 0 0 1.5708</pose>
+
+    <link name="link">
+      <collision name="collision">
+        <geometry>
+          <box>
+            <size>2.8 0.2 1</size>
+          </box>
+        </geometry>
+      </collision>
+
+      <visual name="visual">
+        <geometry>
+          <box>
+            <size>2.8 0.2 1</size>
+          </box>
+        </geometry>
+      </visual>
+    </link>
+  </model>
+
+  <!-- C Top -->
+  <model name="c_top">
+    <static>true</static>
+    <pose>0.2 3.3 0.5 0 0 0</pose>
+
+    <link name="link">
+      <collision name="collision">
+        <geometry>
+          <box>
+            <size>3.2 0.2 1</size>
+          </box>
+        </geometry>
+      </collision>
+
+      <visual name="visual">
+        <geometry>
+          <box>
+            <size>3.2 0.2 1</size>
+          </box>
+        </geometry>
+      </visual>
+    </link>
+  </model>
+
+  <!-- C Bottom -->
+  <model name="c_bottom">
+    <static>true</static>
+    <pose>0.8 0.7 0.5 0 0 0</pose>
+
+    <link name="link">
+      <collision name="collision">
+        <geometry>
+          <box>
+            <size>4.6 0.2 1</size>
+          </box>
+        </geometry>
+      </collision>
+
+      <visual name="visual">
+        <geometry>
+          <box>
+            <size>4.6 0.2 1</size>
+          </box>
+        </geometry>
+      </visual>
+    </link>
+  </model>
+
+  <!-- Right Vertical -->
+  <model name="right_vertical">
+    <static>true</static>
+    <pose>3 -2 0.5 0 0 1.5708</pose>
+
+    <link name="link">
+      <collision name="collision">
+        <geometry>
+          <box>
+            <size>6 0.2 1</size>
+          </box>
+        </geometry>
+      </collision>
+
+      <visual name="visual">
+        <geometry>
+          <box>
+            <size>6 0.2 1</size>
+          </box>
+        </geometry>
+      </visual>
+    </link>
+  </model>
+
+ <!-- Bottom Left -->
+  <model name="bottom_corridor">
+    <static>true</static>
+    <pose>-3.5 -3.5 0.5 0 0 0</pose>
+
+    <link name="link">
+      <collision name="collision">
+        <geometry>
+          <box>
+            <size>3 0.2 1</size>
+          </box>
+        </geometry>
+      </collision>
+
+      <visual name="visual">
+        <geometry>
+          <box>
+            <size>3 0.2 1</size>
+          </box>
+        </geometry>
+      </visual>
+    </link>
+  </model>
+
+  <!-- Bottom Left Vertical -->
+  <model name="bottom_vertical">
+    <static>true</static>
+    <pose>-2.2 -4 0.5 0 0 1.5708</pose>
+
+    <link name="link">
+      <collision name="collision">
+        <geometry>
+          <box>
+            <size>2 0.2 1</size>
+          </box>
+        </geometry>
+      </collision>
+
+      <visual name="visual">
+        <geometry>
+          <box>
+            <size>2 0.2 1</size>
+          </box>
+        </geometry>
+      </visual>
+    </link>
+  </model>
+
+</world>
+</sdf>
+
