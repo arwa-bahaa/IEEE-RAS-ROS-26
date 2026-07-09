@@ -1,0 +1,71 @@
+Launch Command:
+ros2 launch urdf_tutorial display.launch.py model:=/home/arwa/ros2_ws/src/Task_15/06-flexible.urdf
+
+
+Robot Links:
+1. base_link
+* The main body of the robot.
+* All robot parts are connected to this link.
+
+2. left_leg
+* Represents the left leg of the robot.
+* Connected to the base using a fixed joint.
+
+3. right_leg
+* Represents the right leg of the robot.
+* Connected to the base using a fixed joint.
+
+
+Robot Joints:
+1. base_to_left_leg
+* Type: Fixed
+* Parent: base_link
+* Child: left_leg
+
+This joint permanently connects the left leg to the robot body.
+
+2. right_front_wheel_joint
+* Type: Continuous
+* Parent: right_base
+* Child: right_front_wheel
+
+This joint allows the front wheel to rotate continuously.
+
+3. right_back_wheel_joint
+* Type: Continuous
+* Parent: right_base
+* Child: right_back_wheel
+
+This joint allows the rear wheel to rotate continuously.
+
+Parent and Child
+
+Each joint connects two links:
+Parent: The reference (main) link.
+Child: The link attached to the parent.
+
+For example:
+* Parent: `base_link`
+* Child: `left_leg`
+
+Joint Types:
+Fixed: No movement between the two links.
+Continuous: Unlimited rotation around one axis.
+
+Origin:
+The `<origin>` tag specifies the position and orientation of the child link relative to its parent link.
+
+Visual Geometry:
+The robot model uses different geometric shapes:
+
+* Cylinder → Robot body
+* Box → Legs
+* Cylinder → Wheels
+
+robot_state_publisher:
+`robot_state_publisher` reads the URDF model and publishes all robot transforms (TF frames). It calculates the position of every link based on the robot description and the current joint states.
+
+joint_state_publisher:
+`joint_state_publisher` publishes the current values of the robot joints on the `/joint_states` topic. When a joint value changes, the robot pose is updated in RViz.
+
+
