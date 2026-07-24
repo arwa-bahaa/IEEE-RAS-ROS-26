@@ -1,0 +1,421 @@
+<?xml version="1.0"?>
+<robot name="Sumo_robot" xmlns:xacro="http://www.ros.org/wiki/xacro" >
+    <link name="base_link">
+        <visual>
+            <geometry>
+                <box size="0.3 0.3 0.15"/>
+            </geometry>
+            <material name="Blue">
+            <color rgba="0 0 1 1"/>
+        </material>
+        </visual>
+        <collision>
+            <geometry>
+                <box size="0.3 0.3 0.15"/>
+            </geometry>
+        </collision>
+
+    </link>
+
+    
+ <!-- Left wheel link -->
+
+    <joint name="left_wheel_joint" type="continuous">
+        <origin xyz="-0.1 0.175 -0.03" rpy="1.5708 0 0"/>
+        <child link="left_wheel"/>
+        <parent link="base_link"/>
+        <axis xyz="0 0 1"/>
+    </joint>
+
+    <link name="left_wheel">
+        <collision>
+            <geometry>
+                <cylinder radius="0.05" length="0.04"/>
+            </geometry>
+        </collision>
+        <visual>
+            <geometry>
+               <cylinder radius="0.05" length="0.04"/>
+            </geometry>
+            <material name="black">
+                <color rgba="0.0 0.0 0.0 1.0"/>
+            </material>
+        </visual>
+    </link>
+
+     <!-- Right wheel link -->
+    <joint name="right_wheel_joint" type="continuous">
+        <origin xyz="-0.1 -0.175 -0.03" rpy="1.5708 0 0"/>
+        <child link="right_wheel"/>
+        <parent link="base_link"/>
+        <axis xyz="0 0 -1"/>
+    </joint>
+
+    <link name="right_wheel">
+        <visual>
+            <geometry>
+                <cylinder radius="0.05" length="0.04"/>
+            </geometry>
+        </visual>
+        <collision>
+            <geometry>
+                <cylinder radius="0.05" length="0.04"/>
+            </geometry>
+        </collision>
+    </link>
+
+
+
+
+
+
+
+
+    <joint name="castor_wheel_left_joint" type="fixed">
+        <parent link="base_link"/>
+        <child link="castor_wheel_left"/>
+        <origin xyz="0.1 0.1 -0.07"/>
+    </joint>
+
+    <link name="castor_wheel_left">
+        <visual>
+            <geometry>
+                <box size="0.06 0.06 0.06"/>
+            </geometry>
+            <material name="castor_material">
+                <color rgba="0.62 0.62 0.62 1.0"/>
+            </material>
+        </visual>
+        <collision>
+            <geometry>
+                <box size="0.06 0.06 0.06"/>
+            </geometry>
+        </collision>
+    </link>
+
+    <joint name="castor_wheel_right_joint" type="fixed">
+        <parent link="base_link"/>
+        <child link="castor_wheel_right"/>
+        <origin xyz="0.1 -0.1 -0.07"/>
+    </joint>
+
+    <link name="castor_wheel_right">
+        <visual>
+            <geometry>
+                <box size="0.06 0.06 0.06"/>
+            </geometry>
+            <material name="castor_material">
+                <color rgba="0.62 0.62 0.62 1.0"/>
+            </material>
+        </visual>
+        <collision>
+            <geometry>
+                <box size="0.06 0.06 0.06"/>
+            </geometry>
+        </collision>
+    </link>
+    
+    <!-- ========================= -->
+<!-- Ultrasonic Front -->
+<!-- ========================= -->
+
+<link name="ultrasonic_front">
+    <visual>
+        <geometry>
+            <box size="0.04 0.04 0.03"/>
+        </geometry>
+        <material name="Blue">
+            <color rgba="0 0 1 1"/>
+        </material>
+    </visual>
+
+    <collision>
+        <geometry>
+            <box size="0.04 0.04 0.03"/>
+        </geometry>
+    </collision>
+</link>
+
+<joint name="ultrasonic_front_joint" type="fixed">
+    <parent link="base_link"/>
+    <child link="ultrasonic_front"/>
+    <origin xyz="0.17 0 0.08" rpy="0 0 0"/>
+</joint>
+
+
+<!-- ========================= -->
+<!-- Ultrasonic Left -->
+<!-- ========================= -->
+
+<link name="ultrasonic_left">
+    <visual>
+        <geometry>
+            <box size="0.04 0.04 0.03"/>
+        </geometry>
+        <material name="Green">
+            <color rgba="0 1 0 1"/>
+        </material>
+    </visual>
+
+    <collision>
+        <geometry>
+            <box size="0.04 0.04 0.03"/>
+        </geometry>
+    </collision>
+</link>
+
+<joint name="ultrasonic_left_joint" type="fixed">
+    <parent link="base_link"/>
+    <child link="ultrasonic_left"/>
+    <origin xyz="0 0.17 0.08" rpy="0 0 1.5708"/>
+</joint>
+
+
+<!-- ========================= -->
+<!-- Ultrasonic Right -->
+<!-- ========================= -->
+
+<link name="ultrasonic_right">
+    <visual>
+        <geometry>
+            <box size="0.04 0.04 0.03"/>
+        </geometry>
+        <material name="Red">
+            <color rgba="1 0 0 1"/>
+        </material>
+    </visual>
+
+    <collision>
+        <geometry>
+            <box size="0.04 0.04 0.03"/>
+        </geometry>
+    </collision>
+</link>
+
+<joint name="ultrasonic_right_joint" type="fixed">
+    <parent link="base_link"/>
+    <child link="ultrasonic_right"/>
+    <origin xyz="0 -0.17 0.08" rpy="0 0 -1.5708"/>
+</joint>
+    
+    <!-- IMU Sensor -->
+    <joint name="imu_joint" type="fixed">
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <parent link="base_link"/>
+        <child link="imu_link" />
+    </joint>
+
+    <link name="imu_link" />
+
+    
+
+<link name="camera">
+    <visual>
+        <geometry>
+            <box size="0.02 0.02 0.03"/>
+        </geometry>
+<material name="Yellow">
+    <color rgba="1 1 0 1"/>
+</material>
+    </visual>
+
+    <collision>
+        <geometry>
+            <box size="0.02 0.02 0.03"/>
+        </geometry>
+    </collision>
+</link>
+
+<joint name="camera_joint" type="fixed">
+    <parent link="base_link"/>
+    <child link="camera"/>
+    <origin xyz="0 0 0.08" rpy="0 0 0"/>
+</joint>
+
+
+
+
+
+
+
+
+
+        <!-- Gazebo Parameters -->
+    <gazebo reference="left_wheel">
+        <mu1>1.0</mu1>
+        <mu2>1.0</mu2>
+    </gazebo>
+
+    <gazebo reference="right_wheel">
+        <mu1>1.0</mu1>
+        <mu2>1.0</mu2>
+    </gazebo>
+
+    <gazebo reference="castor_wheel_right">
+        <mu1>0.000001</mu1>
+        <mu2>0.000001</mu2>
+    </gazebo>
+
+    <gazebo reference="castor_wheel_left">
+        <mu1>0.000001</mu1>
+        <mu2>0.000001</mu2>
+    </gazebo>
+
+    <gazebo reference="castor_wheel_left_joint">
+    <kp>100000.0</kp>
+    <kd>10.0</kd>
+</gazebo>
+
+<gazebo reference="castor_wheel_right_joint">
+    <kp>100000.0</kp>
+    <kd>10.0</kd>
+</gazebo>
+
+
+
+
+
+    <gazebo>
+        <plugin
+        filename="gz-sim-odometry-publisher-system"
+        name="gz::sim::systems::OdometryPublisher">
+        <odom_frame>odom</odom_frame>
+        <robot_base_frame>base_link</robot_base_frame>
+        <odom_publish_frequency>50</odom_publish_frequency>
+        <odom_topic>/odom</odom_topic>
+        <tf_topic>/tf</tf_topic>
+        <dimensions>2</dimensions>
+        </plugin>
+      
+        <plugin filename="gz-sim-joint-state-publisher-system" name="gz::sim::systems::JointStatePublisher">
+            <topic>joint_states</topic>
+            <joint_name>right_wheel_joint</joint_name>
+            <joint_name>left_wheel_joint</joint_name>
+        </plugin>
+    
+    </gazebo>
+
+    <gazebo>
+    <plugin filename="gz-sim-diff-drive-system" name="gz::sim::systems::DiffDrive">
+
+        <left_joint>left_wheel_joint</left_joint>
+        <right_joint>right_wheel_joint</right_joint>
+
+        <wheel_separation>0.35</wheel_separation>
+        <wheel_diameter>0.10</wheel_diameter>
+
+        <command_topic>cmd_vel</command_topic>
+        <odometry_topic>odom</odometry_topic>
+        <odometry_frame>odom</odometry_frame>
+        <robot_base_frame>base_link</robot_base_frame>
+
+        <publish_odom>true</publish_odom>
+        <publish_wheel_tf>true</publish_wheel_tf>
+
+    </plugin>
+</gazebo>
+
+<gazebo reference="imu_link">
+        <sensor name="imu" type="imu">
+        <always_on>true</always_on>
+        <update_rate>200</update_rate>
+        <visualize>true</visualize>
+        <topic>imu</topic>
+        <enable_metrics>true</enable_metrics>
+        <gz_frame_id>imu_link</gz_frame_id>
+        </sensor>
+</gazebo>
+
+
+<gazebo reference="ultrasonic_front">
+    <sensor name="front_sensor" type="gpu_lidar">
+        <update_rate>20</update_rate>
+        <topic>front_ultrasonic</topic>
+        <ray>
+            <scan>
+                <horizontal>
+                    <samples>1</samples>
+                    <resolution>1</resolution>
+                    <min_angle>0</min_angle>
+                    <max_angle>0</max_angle>
+                </horizontal>
+            </scan>
+            <range>
+                <min>0.02</min>
+                <max>3.0</max>
+                <resolution>0.01</resolution>
+            </range>
+        </ray>
+    </sensor>
+</gazebo>
+
+<gazebo reference="ultrasonic_left">
+    <sensor name="left_sensor" type="gpu_lidar">
+        <always_on>true</always_on>
+        <update_rate>20</update_rate>
+        <visualize>true</visualize>
+        <topic>left_ultrasonic</topic>
+        <ray>
+            <scan>
+                <horizontal>
+                    <samples>1</samples>
+                    <resolution>1</resolution>
+                    <min_angle>0</min_angle>
+                    <max_angle>0</max_angle>
+                </horizontal>
+            </scan>
+            <range>
+                <min>0.02</min>
+                <max>3.0</max>
+                <resolution>0.01</resolution>
+            </range>
+        </ray>
+    </sensor>
+</gazebo>
+
+<gazebo reference="ultrasonic_right">
+    <sensor name="right_sensor" type="gpu_lidar">
+        <always_on>true</always_on>
+        <update_rate>20</update_rate>
+        <visualize>true</visualize>
+        <topic>right_ultrasonic</topic>
+        <ray>
+            <scan>
+                <horizontal>
+                    <samples>1</samples>
+                    <resolution>1</resolution>
+                    <min_angle>0</min_angle>
+                    <max_angle>0</max_angle>
+                </horizontal>
+            </scan>
+            <range>
+                <min>0.02</min>
+                <max>3.0</max>
+                <resolution>0.01</resolution>
+            </range>
+        </ray>
+    </sensor>
+</gazebo>
+    
+    <gazebo reference="camera">
+    <sensor name="camera_sensor" type="camera">
+        <always_on>true</always_on>
+        <update_rate>30</update_rate>
+        <visualize>true</visualize>
+        <topic>camera/image</topic>
+        <camera>
+            <horizontal_fov>1.047</horizontal_fov>
+            <image>
+                <width>640</width>
+                <height>480</height>
+                <format>R8G8B8</format>
+            </image>
+            <clip>
+                <near>0.05</near>
+                <far>20.0</far>
+            </clip>
+        </camera>
+    </sensor>
+</gazebo>
+    
+</robot>
